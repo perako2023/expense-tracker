@@ -1,0 +1,224 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+/* * temp */
+html {
+  color-scheme: dark;
+  color: hsla(0, 0%, 100%, 0.76);
+}
+
+body {
+  touch-action: pan-x pan-y;
+  height: 100dvh;
+  width: 100vw;
+  overflow: hidden;
+}
+
+.main-col {
+  background: black;
+  /* border: 1px solid; */
+  border-radius: 1rem;
+  padding: 1rem;
+  margin: auto;
+  width: clamp(300px, 100vw, 400px);
+  height: 100%;
+
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.card {
+  text-transform: uppercase;
+  border: 1px solid;
+  border-radius: 0.6rem;
+  padding: 1rem;
+  display: grid;
+  grid-template:
+    'b b'
+    '. .';
+  gap: 1rem;
+}
+.card__balance {
+  grid-area: b;
+}
+
+.card span {
+  font-size: 1.4rem;
+}
+
+/* #balance::before {
+  content: '$';
+}
+#income::before,
+.income .transaction__amount::before {
+  content: '+ $';
+}
+#expense::before,
+.expense .transaction__amount::before {
+  content: '- $';
+} */
+
+#income {
+  color: green;
+}
+#expense {
+  color: red;
+}
+
+.transactions {
+  flex: 1;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: min-content 1fr;
+  gap: 1rem 0;
+}
+#transactions-col {
+  grid-column: span 2;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.transaction {
+  height: 2rem;
+  margin-right: 0.5rem;
+  border: 1px solid;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 1rem;
+}
+
+.transaction.income {
+  border-right: 5px solid green;
+}
+
+.transaction.expense {
+  border-right: 5px solid red;
+}
+
+footer {
+  display: flex;
+  justify-content: center;
+}
+
+#add-expense-btn {
+  font-size: 1rem;
+  height: 3rem;
+  width: 95%;
+}
+
+/* ---------------------------------- form ---------------------------------- */
+.form-overlay {
+  display: none;
+  position: absolute;
+  z-index: 100;
+  top: 0;
+  left: 50%;
+  translate: -50%;
+
+  background: #000;
+  height: 100dvh;
+  /* width: 100vw; */
+  width: clamp(300px, 100vw, 400px);
+}
+.form-overlay.active {
+  display: grid;
+  place-content: center;
+}
+
+form {
+  padding: 1rem;
+  height: 100%;
+  /* width: clamp(300px, 100vw, 400px); */
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  line-height: 2rem;
+}
+form input/* :not(input[type='radio']) */ {
+  font-size: 1rem;
+  width: 100%;
+  /* height: 2rem; */
+  padding: 1rem;
+  /* padding: 0.4rem; */
+  background-color: transparent;
+  border: 1px solid hsla(0, 0%, 100%, 0.5);
+}
+
+/* type-tabs */
+.type-tabs {
+  border: 1px solid;
+  display: flex;
+  /* background: red; */
+  gap: 1rem;
+  padding: 1rem;
+
+  /* * prevent select */
+  -webkit-user-select: none; /* Safari */
+  -ms-user-select: none; /* IE 10 and IE 11 */
+  user-select: none; /* Standard syntax */
+}
+
+.type-tabs label {
+  flex: 1;
+  text-align: center;
+  cursor: pointer;
+  /* border: 1px solid; */
+}
+.type-tabs label:hover {
+  background: rgba(128, 128, 128, 0.493);
+}
+
+.type-tabs input:checked + * {
+  background: grey;
+}
+
+.type-tabs input {
+  display: none;
+}
+/* type-tabs end */
+
+.form__btns {
+  display: flex;
+  gap: 1rem;
+  cursor: pointer;
+}
+.form__btns input {
+  cursor: pointer;
+}
+
+.form__btns [type='submit'] {
+  background: grey;
+}
+/* -------------------------------- form end -------------------------------- */
+
+/* ---------------------------- custom scrollbar ---------------------------- */
+html {
+  /* --scrollbarBG: #2c2a2a; */
+  /* --thumbBG: #928e8e; */
+  scrollbar-color: var(--thumbBG) var(--scrollbarBG);
+}
+body::-webkit-scrollbar {
+  width: 11px;
+}
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--thumbBG) var(--scrollbarBG);
+}
+body::-webkit-scrollbar-track {
+  background: var(--scrollbarBG);
+}
+body::-webkit-scrollbar-thumb {
+  background-color: var(--thumbBG);
+  border-radius: 6px;
+  border: 3px solid var(--scrollbarBG);
+}
+/* -------------------------- custom scrollbar end -------------------------- */

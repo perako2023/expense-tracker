@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
+    />
+    <title>Expense Tracker</title>
+    <link rel="stylesheet" href="main.css" />
+    <script defer src="script.js"></script>
+  </head>
+  <body>
+    <!-- ------------------------------ main-col ------------------------------- -->
+    <div class="main-col">
+      <h1>Expense Tracker</h1>
+
+      <header class="card">
+        <div class="card__balance">
+          <h4>Total Balance</h4>
+          <span id="balance">$0.00</span>
+        </div>
+        <div class="card__income">
+          <h4>Income</h4>
+          <span id="income">+$0.00</span>
+        </div>
+        <div class="card__expense">
+          <h4>Expense</h4>
+          <span id="expense">-$0.00</span>
+        </div>
+      </header>
+
+      <section class="transactions">
+        <h2>Transactions</h2>
+        <!-- <button>See All</button> -->
+        <ul id="transactions-col">
+          <!-- <li class="transaction income">
+            <div class="transaction__name">Food</div>
+            <span class="transaction__amount">$100</span>
+          </li> -->
+        </ul>
+      </section>
+
+      <footer>
+        <button id="add-expense-btn">Add Transaction</button>
+      </footer>
+    </div>
+
+    <div class="form-overlay">
+      <form>
+        <div class="type-tabs">
+          <label>
+            <input type="radio" name="type" value="income" />
+            <div>Income</div>
+          </label>
+          <label>
+            <input type="radio" name="type" value="expense" checked />
+            <div>Expense</div>
+          </label>
+        </div>
+        <label for="form__name">
+          Name
+          <input name="name" required id="form__name" type="text" />
+        </label>
+        <label for="form__amount">
+          Amount (negative - expense, positive - income)
+          <input name="amount" required id="form__amount" type="tel" />
+        </label>
+        <div class="form__btns">
+          <input id="form__cancel-btn" type="button" value="Cancel" />
+          <input id="form__add-btn" type="submit" value="Add transaction" />
+        </div>
+      </form>
+    </div>
+    <!-- ---------------------------- main-col end ----------------------------- -->
+  </body>
+</html>
